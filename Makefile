@@ -7,19 +7,33 @@ CFG                ?= .env
 CFG_BAK            ?= $(CFG).bak
 
 #- App name
-APP_NAME           ?= service-template
-
+APP_NAME           ?= showonce
 #- Docker image name
-IMAGE              ?= ghcr.io/lekovr/service-template
-
+IMAGE              ?= ghcr.io/lekovr/showonce
 #- Docker image tag
-IMAGE_VER          ?= 0.1.0
+IMAGE_VER          ?= v1.0.7
 
-# If you need database, uncomment this var
-#USE_DB              = yes
+# -----------------------------------------------------------------------------
+# App config
 
-# If you need user name and password, uncomment this var
-#ADD_USER            = yes
+#- Auth service type
+AS_TYPE       ?= gitea
+#- Auth service URL
+AS_HOST       ?= https://git.dev.test
+#- Auth service org
+AS_TEAM       ?= dcape
+#- Auth service client_id
+AS_CLIENT_ID  ?= you_should_get_id_from_as
+#- Auth service client key
+AS_CLIENT_KEY ?= you_should_get_key_from_as
+
+#- Auth service cookie sign key
+AS_COOKIE_SIGN_KEY   ?= $(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c32; echo)
+#- Auth service cookie crypt key
+AS_COOKIE_CRYPT_KEY  ?= $(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c32; echo)
+
+#- URL scheme (calculated by make)
+DCAPE_SCHEME  ?=
 
 # ------------------------------------------------------------------------------
 
@@ -29,14 +43,6 @@ export
 
 -include $(CFG)
 export
-
-# This content will be added to .env
-# define CONFIG_CUSTOM
-# # ------------------------------------------------------------------------------
-# # Sample config for .env
-# #SOME_VAR=value
-#
-# endef
 
 # ------------------------------------------------------------------------------
 # Find and include DCAPE_ROOT/Makefile
@@ -50,11 +56,3 @@ else
 endif
 
 # ------------------------------------------------------------------------------
-
-## Template support code, used once
-use-template:
-
-.default-deploy: prep
-
-prep:
-	@echo "Just to show we able to attach"
