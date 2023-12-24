@@ -1,19 +1,19 @@
-# dcape-app-template
+# dcape-app-showonce
 
 [![GitHub Release][1]][2] [![GitHub code size in bytes][3]]() [![GitHub license][4]][5]
 
-[1]: https://img.shields.io/github/release/dopos/dcape-app-template.svg
-[2]: https://github.com/dopos/dcape-app-template/releases
-[3]: https://img.shields.io/github/languages/code-size/dopos/dcape-app-template.svg
-[4]: https://img.shields.io/github/license/dopos/dcape-app-template.svg
+[1]: https://img.shields.io/github/release/dopos/dcape-app-showonce.svg
+[2]: https://github.com/dopos/dcape-app-showonce/releases
+[3]: https://img.shields.io/github/languages/code-size/dopos/dcape-app-showonce.svg
+[4]: https://img.shields.io/github/license/dopos/dcape-app-showonce.svg
 [5]: LICENSE
 
-[upstream_name](https://upstream_url) application package for [dcape](https://github.com/dopos/dcape).
+[ShowOnce](https://github.com/LeKovr/showonce) application package for [dcape](https://github.com/dopos/dcape).
 
 ## Upstream
 
-* Project: [upstream_name](https://upstream_url)
-* Docker: [template](https://hub.docker.com/r/template)
+* Project: [ShowOnce](https://github.com/LeKovr/showonce)
+* Docker: [showonce](https://github.com/LeKovr/showonce/pkgs/container/showonce)
 
 ## Requirements
 
@@ -38,8 +38,8 @@
 
 Run commands on deploy host with [dcape](https://github.com/dopos/dcape) installed:
 ```bash
-git clone https://github.com/dopos/dcape-app-template.git
-cd dcape-app-template
+git clone https://github.com/dopos/dcape-app-showonce.git
+cd dcape-app-showonce
 make config-if
 ... <edit .env>
 make up
