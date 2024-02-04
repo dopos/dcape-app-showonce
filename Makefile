@@ -28,9 +28,10 @@ AS_CLIENT_ID  ?= you_should_get_id_from_as
 AS_CLIENT_KEY ?= you_should_get_key_from_as
 
 #- Auth service cookie sign key
-AS_COOKIE_SIGN_KEY   ?= $(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c32; echo)
+AS_COOKIE_SIGN_KEY   ?= $(shell openssl rand -hex 16; echo)
+
 #- Auth service cookie crypt key
-AS_COOKIE_CRYPT_KEY  ?= $(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c32; echo)
+AS_COOKIE_CRYPT_KEY  ?= $(shell openssl rand -hex 32; echo)
 
 #- URL scheme (calculated by make)
 DCAPE_SCHEME  ?=
