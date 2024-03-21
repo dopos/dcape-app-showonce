@@ -11,7 +11,7 @@ APP_NAME           ?= showonce
 #- Docker image name
 IMAGE              ?= ghcr.io/lekovr/showonce
 #- Docker image tag
-IMAGE_VER          ?= v1.0.7
+IMAGE_VER          ?= v1.1.1
 
 # -----------------------------------------------------------------------------
 # App config
