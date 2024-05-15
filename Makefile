@@ -11,7 +11,7 @@ APP_NAME           ?= showonce
 #- Docker image name
 IMAGE              ?= ghcr.io/lekovr/showonce
 #- Docker image tag
-IMAGE_VER          ?= v1.1.1
+IMAGE_VER          ?= v1.1.2
 
 # -----------------------------------------------------------------------------
 # App config
@@ -31,7 +31,7 @@ AS_CLIENT_KEY ?= you_should_get_key_from_as
 AS_COOKIE_SIGN_KEY   ?= $(shell openssl rand -hex 16; echo)
 
 #- Auth service cookie crypt key
-AS_COOKIE_CRYPT_KEY  ?= $(shell openssl rand -hex 32; echo)
+AS_COOKIE_CRYPT_KEY  ?= $(shell openssl rand -hex 16; echo)
 
 #- URL scheme (calculated by make)
 DCAPE_SCHEME  ?=
